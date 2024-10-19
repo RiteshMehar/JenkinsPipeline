@@ -1,0 +1,24 @@
+pipeline {
+     agent any
+     stages {
+         stage('build step') {
+              steps {
+                 echo "Build stage is running"
+              }
+         }
+     }
+     post {
+         always {
+             echo "You can always see me"
+         }
+         success {
+              echo "The job run successfully"
+         }
+         unstable {
+              echo "Boost ! The build is unstable. Try to fix it"
+         }
+         failure {
+             echo "Check ! The build failed"
+         }
+     }
+}
